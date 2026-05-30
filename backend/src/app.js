@@ -1,8 +1,26 @@
-// Dòng này PHẢI NẰM ĐẦU TIÊN (trước cả khi import db, app hay routes)
-require('dotenv').config(); 
-
-const express = require('express');
-const connectDB = require('./config/db'); // Nếu file db.js gọi MONGODB_URI thì dotenv phải load trước nó
+const express = require("express");
+const cors = require("cors");
+const { corsOptions } = require("./config/cors");
+const { uploadRoot } = require("./config/storage");
+const apiRoutes = require("./routes");
+const { globalErrorHandler, notFoundHandler } = require("./middlewares/error.middleware");
 
 const app = express();
-connectDB(); // Lúc này Mongoose mới nhận được chuỗi URI
+
+app.use(express.json());
+app.use("/uploads", express.static(uploadRoot));
+app.use(cors(corsOptions));
+
+app.use("/api", apiRoutes);
+
+app.get("/", (_req, res) => {
+  res.json({
+    status: "ok",
+    message: "ITPM API is running",
+  });
+});
+
+app.use(notFoundHandler);
+app.use(globalErrorHandler);
+
+module.exports = app;

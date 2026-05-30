@@ -3,10 +3,11 @@
  * Phân hệ: GIAO TIẾP & TRUYỀN THÔNG
  */
 
+import type { NotificationTypeValue } from '@itpm/shared';
 import type { User } from './user.types';
 import type { Attachment } from './task.types';
 
-export type NotificationType = 'task_assigned' | 'task_comment' | 'review_requested' | 'review_approved' | 'review_rejected' | 'deadline_due' | 'deadline_overdue' | 'mention' | 'system';
+export type NotificationType = NotificationTypeValue;
 
 export interface Comment {
   _id?: string;

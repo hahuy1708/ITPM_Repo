@@ -19,7 +19,7 @@ export type { Project } from './project.types';
 
 // --- TASK TYPES ---
 export type { TaskStatus, TaskPriority, Priority, ReviewStatus } from './task.types';
-export type { Attachment, Subtask, TaskDependency, ExecutionResult, TaskKpiResult, Task } from './task.types';
+export type { Attachment, Subtask, TaskDependency, TaskGroup, ExecutionResult, TaskKpiResult, Task } from './task.types';
 
 // --- COMMUNICATION TYPES ---
 export type { NotificationType } from './communication.types';
