@@ -3,10 +3,11 @@
  * Phân hệ: LÕI CÔNG VIỆC
  */
 
+import type { ProjectStatusValue, ProjectVisibilityValue } from '@itpm/shared';
 import type { User, Department } from './user.types';
 
-export type ProjectStatus = 'planning' | 'active' | 'on_hold' | 'completed';
-export type ProjectVisibility = 'public' | 'private';
+export type ProjectStatus = ProjectStatusValue;
+export type ProjectVisibility = ProjectVisibilityValue;
 
 export interface Project {
   _id?: string;
@@ -21,6 +22,7 @@ export interface Project {
   end_date?: string;
   department_id?: string | Department;
   department?: Department;
+  folder_id?: string | { _id?: string; id?: string; name: string } | null;
   owner_id?: string | User;
   owner?: User;
   member_ids?: Array<string | User>;

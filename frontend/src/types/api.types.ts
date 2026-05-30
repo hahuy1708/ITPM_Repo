@@ -4,13 +4,9 @@
  */
 
 import type { Task } from './task.types';
+import type { ApiResponse as SharedApiResponse } from '@itpm/shared';
 
-export interface ApiResponse<T> {
-  success: boolean;
-  data?: T;
-  message?: string;
-  error?: string;
-}
+export type ApiResponse<T> = SharedApiResponse<T>;
 
 export interface PaginatedResponse<T> {
   success: boolean;

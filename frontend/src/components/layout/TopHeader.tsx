@@ -4,10 +4,10 @@ import {
   LogOut,
   Plus,
 } from 'lucide-react';
-import { useAppContext } from '@/lib/AppContext.tsx';
-import { useAuth } from '@/lib/AuthContext';
+import { useAppContext } from '@/app/providers/AppStateProvider';
+import { useAuth } from '@/app/providers/AuthProvider';
 import { Button } from '@/components/ui/button';
-import NotificationBell from '@/components/notifications/NotificationBell';
+import NotificationBell from '@/features/notifications/components/NotificationBell';
 import { cn } from '@/lib/utils';
 
 interface TopHeaderProps {
@@ -22,15 +22,17 @@ export default function TopHeader({ onCreateNew }: TopHeaderProps) {
 
   const tabs = [
     { label: 'Tong quan', path: '/', active: location.pathname === '/' || location.pathname === '/dashboard' },
+    { label: 'Nhan vien cua toi', path: '/employees', active: location.pathname.startsWith('/employees'), roles: ['admin', 'manager'] },
     { label: 'Du an', path: '/projects', active: location.pathname.startsWith('/projects') },
     { label: 'Viec cua toi', path: '/my-tasks', active: location.pathname.startsWith('/my-tasks') },
-    { label: 'Phong ban', path: '/departments', active: location.pathname.startsWith('/departments'), roles: ['admin'] },
+    { label: 'Phong ban', path: '/departments', active: location.pathname.startsWith('/departments') },
     { label: 'Nhan su', path: '/invitations', active: location.pathname.startsWith('/invitations'), roles: ['admin'] },
     { label: 'Cai dat', path: '/settings', active: location.pathname.startsWith('/settings') },
   ].filter((tab) => !tab.roles || (user?.role && tab.roles.includes(user.role)));
 
   const title = (() => {
     if (location.pathname.startsWith('/projects')) return 'Project Workspace';
+    if (location.pathname.startsWith('/employees')) return 'My Employees';
     if (location.pathname.startsWith('/my-tasks')) return 'My Work';
     if (location.pathname.startsWith('/departments')) return 'Departments';
     if (location.pathname.startsWith('/invitations')) return 'People & Access';
