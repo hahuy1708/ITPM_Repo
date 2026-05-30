@@ -3,13 +3,14 @@
  * Phân hệ: LÕI CÔNG VIỆC
  */
 
+import type { ReviewStatusValue, TaskPriorityValue, TaskStatusValue } from '@itpm/shared';
 import type { User } from './user.types';
 import type { Project } from './project.types';
 
-export type TaskStatus = 'todo' | 'in_progress' | 'review' | 'needs_revision' | 'done';
-export type TaskPriority = 'low' | 'medium' | 'high' | 'urgent';
+export type TaskStatus = TaskStatusValue;
+export type TaskPriority = TaskPriorityValue;
 export type Priority = TaskPriority;
-export type ReviewStatus = 'pending' | 'approved' | 'rejected';
+export type ReviewStatus = ReviewStatusValue;
 
 export interface Attachment {
   file_name: string;
@@ -38,6 +39,15 @@ export interface TaskDependency {
   title: string;
   status: TaskStatus;
   due_date?: string;
+}
+
+export interface TaskGroup {
+  key: string;
+  name: string;
+  task_count?: number;
+  order_index?: number;
+  created_at?: string;
+  created_by?: string | User;
 }
 
 export interface ExecutionResult {

@@ -1,4 +1,6 @@
-export type UserRole = 'admin' | 'manager' | 'employee' | 'Administrator' | 'Leader' | 'Developer' | 'Designer';
+import type { UserRoleValue } from '@itpm/shared';
+
+export type UserRole = UserRoleValue;
 export type InvitationStatus = 'pending' | 'accepted' | 'expired';
 export type AccountStatus = 'pending' | 'active' | 'locked' | 'disabled';
 
@@ -50,6 +52,7 @@ export interface Department {
   code?: string;
   description?: string;
   color?: string;
+  folder_id?: string | { _id?: string; id?: string; name: string } | null;
   manager_id?: string | User;
   managerId?: string | User;
   member_ids?: Array<string | User>;
