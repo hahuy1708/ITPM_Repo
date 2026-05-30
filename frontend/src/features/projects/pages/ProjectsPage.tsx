@@ -406,11 +406,11 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Trang thai</label>
                 <Select value={form.status} onValueChange={(value) => setFormValue('status', value as ProjectStatus)}>
-                  <SelectTrigger className="w-40"><SelectValue /></SelectTrigger>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="planning">Lap ke hoach</SelectItem>
                     <SelectItem value="active">Dang chay</SelectItem>
@@ -423,7 +423,7 @@ export default function Projects() {
               <div>
                 <label className="block text-sm font-medium mb-1">Quyen rieng tu</label>
                 <Select value={form.visibility} onValueChange={(value) => setFormValue('visibility', value as ProjectVisibility)}>
-                  <SelectTrigger className="w-36"><SelectValue /></SelectTrigger>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="private">Private</SelectItem>
                     <SelectItem value="public">Public</SelectItem>
@@ -433,7 +433,7 @@ export default function Projects() {
 
               <div>
                 <label className="block text-sm font-medium mb-1">Mau sac</label>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {COLORS.map((color) => (
                     <button
                       key={color}
