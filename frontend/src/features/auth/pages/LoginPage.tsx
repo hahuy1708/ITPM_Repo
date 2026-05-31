@@ -52,7 +52,7 @@ export const LoginPage: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="space-y-2">
-          <CardTitle className="text-2xl">ITPM Login</CardTitle>
+          <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>Dang nhap de truy cap he thong quan ly cong viec va KPI.</CardDescription>
         </CardHeader>
 

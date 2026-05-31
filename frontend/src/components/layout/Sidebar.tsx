@@ -313,7 +313,7 @@ export default function Sidebar() {
           </div>
           {!sidebarCollapsed && (
             <div className="min-w-0">
-              <p className="truncate text-sm font-bold tracking-tight text-white">ITPM Workspace</p>
+              <p className="truncate text-sm font-bold tracking-tight text-white">WeWork Workspace</p>
               <p className="truncate text-[11px] font-medium text-slate-400">Enterprise task & KPI</p>
             </div>
           )}
